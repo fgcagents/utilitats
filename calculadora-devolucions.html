@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora devolucions</title>
+    <link rel="stylesheet" href="calculadora-devolucions.css">
+</head>
+<body>
+     <nav>
+        <ul>
+            <li><a href="index.html">Cercador horaris</a></li>
+            <li><a href="calculadora-devolucions.html">Calculadora devolucions</a></li>
+        </ul>
+    </nav>
+    <h1>Devolucions</h1>
+    <form id="formulari">
+        <input type="number" id="import" step="0.05" min="0.05" max="20" placeholder="Ex.: 4.15" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <div id="resultat" style="display: none;">
+        <p><center><font size="5">Resultat:</font></center></p>
+        <div id="detalls"></div>
+    </div>
+    <p id="error" class="error-message" style="display: none;"></p>
+    <footer>
+        J_E_O © <span id="current-year"></span>
+    </footer>
+    <script src="calculadora-devolucions.js"></script>
+</body>
+</html>
