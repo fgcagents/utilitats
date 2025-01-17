@@ -8,7 +8,7 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: ;
     align-items: center;
     min-height: 100vh;
 }
