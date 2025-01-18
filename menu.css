@@ -43,9 +43,9 @@
     .menu {
         position: fixed;
         top: 0;
-        left: -250px;
+        left: -225px;
         flex-direction: column;
-        width: 250px;
+        width: 225px;
         height: 100%;
         background-color: #4CAF50;
         padding-top: 60px;
