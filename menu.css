@@ -8,6 +8,7 @@
 .navbar a {
     color: white;
     text-decoration: none;
+    letter-spacing: 1px;
     padding: 10px 15px;
 }
 .navbar a:hover {
