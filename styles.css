@@ -2,7 +2,7 @@
 
 /* Estils per a la pàgina index */
 body {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: #f2f2f2;
     margin: 0;
     padding: 10px;
@@ -14,8 +14,9 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 2em;
-    color: #333;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
 }
 
 form {
