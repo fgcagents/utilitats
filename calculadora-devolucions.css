@@ -35,7 +35,7 @@ input[type="number"] {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #0a0000;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -44,7 +44,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0a0000;
 }
 
 #error {
@@ -75,7 +75,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #0a0000;
     color: white;
     font-weight: normal;
 }
@@ -89,7 +89,7 @@ th {
 
 footer {
     margin-top: 80px;
-    background-color: #4CAF50;
+    background-color: #0a0000;
     color: white;
     padding: 5px 10px;
     border-radius: 30px;
