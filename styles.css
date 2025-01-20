@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden; /* Evita desplaçaments laterals inesperats */
 }
 
 h1 {
