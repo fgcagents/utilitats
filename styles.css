@@ -10,8 +10,6 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 h1 {
