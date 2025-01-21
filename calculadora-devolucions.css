@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding: 10px;
+    padding: 0;
     background-color: #f2f2f2;
     color: #333;
 }
@@ -22,8 +22,10 @@ form {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
+    max-width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input[type="number"] {
@@ -54,12 +56,15 @@ button:hover {
 }
 
 #resultat {
-    margin: 15px auto 0;
+    /*margin: 10px;*/
     background: #ffffff;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table {
