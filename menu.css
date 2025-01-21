@@ -18,6 +18,7 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding-right: 15px;
 }
 .menu-toggle div {
     width: 25px;
