@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10px;
+    padding: 10px 0 10px 0;
     /*z-index: 1000; /* Assegura que quedi per sobre d'altres elements */
 }
 .navbar a {
