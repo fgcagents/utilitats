@@ -13,7 +13,7 @@ const bitllets = {
     "PENSTA A 75% 3Z": 1.25,
     "F.N. CAT GEN 20% 1Z": 2.10,
     "F.N. CAT GEN 20% 2Z": 3.05,
-    "F.N. CAT ESP 20% 3Z": 3.95,
+    "F.N. CAT GEN 20% 3Z": 3.95,
 };
 
 document.getElementById('formulari').addEventListener('submit', function (e) {
