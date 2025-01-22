@@ -12,7 +12,7 @@ body {
     box-sizing: border-box;
     min-height: 100vh;
     overflow-x: hidden; /* Evita desplaçaments laterals inesperats */
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 h1 {
