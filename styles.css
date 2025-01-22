@@ -12,6 +12,7 @@ body {
     box-sizing: border-box;
     min-height: 100vh;
     overflow-x: hidden; /* Evita desplaçaments laterals inesperats */
+    overflow-y: hidden;
 }
 
 h1 {
@@ -161,7 +162,7 @@ input[type="submit"] {
 }
 
 footer {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     background-color: #0a0000;
     color: white;
     padding: 5px 10px;
