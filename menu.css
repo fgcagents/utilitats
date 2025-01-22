@@ -1,9 +1,14 @@
 .navbar {
+    position: absolute; /* Fa que el menú quedi fixat al viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Amplada completa per al menú */
     background-color: #4CAF50;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
+    /*z-index: 1000; /* Assegura que quedi per sobre d'altres elements */
 }
 .navbar a {
     color: white;
