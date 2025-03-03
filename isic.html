@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -12,12 +12,12 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora devolucions</title>
-    <link rel="stylesheet" href="menu.css"> <!-- Estils del menú -->
-    <link rel="stylesheet" href="calculadora-devolucions.css">
+    <title>FGC utilitats</title>
+    <link rel="stylesheet" href="isic-css.css"> <!-- Fitxer CSS extern -->
+    <link rel="stylesheet" href="menu.css"> <!-- Estils per al menú -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@200..700&display=swap">
 </head>
-<body>
+<body id="index">
     <!-- Menú reutilitzable -->
     <div class="navbar">
         <a href="index.html" style="font-weight: 400;">FGC utilitats</a>
@@ -32,20 +32,24 @@
             <a href="isic.html">Pantalles ISIC</a>
         </div>
     </div>
-    <h1>Devolucions</h1>
-    <form id="formulari">
-        <input type="number" id="import" step="0.05" min="0.05" max="20" placeholder="Ex.: 4.15" required>
-        <button type="submit">Calcular</button>
-    </form>
-    <div id="resultat" style="display: none;">
-        <p><center><font size="5">Resultat:</font></center></p>
-        <div id="detalls"></div>
+    <h1>Pantalles ISIC</h1>
+
+    <!-- Formulari per triar l'estació -->
+    <div class="container">
+        <!--<label for="station-search">Pantalles ISIC</label>-->
+        <div class="search-container">
+            <input type="text" id="station-search" placeholder="Escriu nom estació...">
+            <div class="search-results"></div>
+        </div>
+        <div class="image-container">
+            <img class="img-fluid" id="isic-next-pc" src="https://geotren.fgc.cat/isic/pc?_=" alt="Horari">
+        </div>
     </div>
-    <p id="error" class="error-message" style="display: none;"></p>
+
     <footer>
         J_E_O © <span id="current-year"></span>
     </footer>
     <script src="menu.js"></script> <!-- Comportament del menú -->
-    <script src="calculadora-devolucions.js"></script>
+    <script src="isic-js.js"></script>
 </body>
 </html>
