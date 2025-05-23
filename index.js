@@ -1,4 +1,4 @@
-  // Funció per obtenir l'hora actual en format HH:MM
+// Funció per obtenir l'hora actual en format HH:MM
     function getCurrentTime() {
         const currentDate = new Date();
         return currentDate.toTimeString().slice(0, 5); // Retornem només HH:MM
@@ -16,28 +16,39 @@
 
     // Funció per obtenir les dades de l'API i mostrar-les
     async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
-        const url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_id:${stationCode}`;
+        let url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_id:${stationCode}`;
 
         try {
-            const response = await fetch(url);
-            const data = await response.json();
+            let response = await fetch(url);
+            let data = await response.json();
+
+            // Si no hay resultados y el código es 'NA', buscar por nombre de estación
+            if (stationCode === 'NA' && (!data.records || data.records.length === 0)) {
+                url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_name:"Nacions Unides"`;
+                response = await fetch(url);
+                data = await response.json();
+            }
 
             // Si no s'ha seleccionat cap hora, fem servir l'hora actual
             let current_time = selectedTime || getCurrentTime();
 
-            if (data.records) {
+            if (data.records && data.records.length > 0) {
                 const upcoming_trains = data.records
                     .map(record => record.fields)
                     .filter(train => train.departure_time >= current_time)
-                    .filter(train => lineName === '' || train.route_short_name.toLowerCase() === lineName.toLowerCase()) // Filtre per línia
+                    .filter(train => lineName === '' || train.route_short_name.toLowerCase() === lineName.toLowerCase())
                     .sort((a, b) => a.departure_time.localeCompare(b.departure_time));
 
                 displayTrains(upcoming_trains, trainCount);
             } else {
                 console.log('No s\'han trobat trens.');
+                const scheduleDiv = document.getElementById('train-schedule');
+                scheduleDiv.innerHTML = '<div class="no-trains">No s\'han trobat trens disponibles</div>';
             }
         } catch (error) {
             console.error('Error obtenint dades de l\'API:', error);
+            const scheduleDiv = document.getElementById('train-schedule');
+            scheduleDiv.innerHTML = '<div class="error">Error en obtenir les dades</div>';
         }
     }
 
