@@ -23,10 +23,10 @@
             let data = await response.json();
 
             // Si no hay resultados y el código es 'NA', buscar por nombre de estación
-            if (stationCode === 'NA' && (!data.records || data.records.length === 0)) {
-                url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_name:"Nacions Unides"`;
-                response = await fetch(url);
-                data = await response.json();
+            if (stationCode.toUpperCase() === 'NA' && (!data.records || data.records.length === 0)) {
+            url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_name:"nacions unides" OR stop_name:"NACIONS UNIDES" OR stop_name:"Nacions Unides"`;
+            response = await fetch(url);
+            data = await response.json();
             }
 
             // Si no s'ha seleccionat cap hora, fem servir l'hora actual
