@@ -23,6 +23,14 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.navbar-title {
+    font-weight: 400;
+}
+
+.small-text {
+    font-size: 0.8em;
+}
+
 form {
     display: flex;
     flex-direction: column;
