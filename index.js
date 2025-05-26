@@ -33,9 +33,20 @@
             let current_time = selectedTime || getCurrentTime();
 
             if (data.records && data.records.length > 0) {
-                const upcoming_trains = data.records
-                    .map(record => record.fields)
-                    .filter(train => train.departure_time >= current_time)
+                
+                const allTrains = data.records.map(record => record.fields);
+
+            // Considerem trens entre les 00:00 i les 03:59 com a "després de mitjanit"
+                const isLateNight = current_time >= "22:00";
+                
+                const upcoming_trains = allTrains
+                    .filter(train => {
+                        const depTime = train.departure_time;
+                        return (
+                            depTime >= current_time || 
+                            (isLateNight && depTime < "04:00") // Inclou trens passats de mitjanit si és tard a la nit
+                        );
+                    })
                     .filter(train => lineName === '' || train.route_short_name.toLowerCase() === lineName.toLowerCase())
                     .sort((a, b) => a.departure_time.localeCompare(b.departure_time));
 
