@@ -55,7 +55,10 @@ async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
         if (horaIniciMin < 240) horaIniciMin += 1440;
 
         if (data.results && data.results.length > 0) {
+            // Filtrado seguro por stop_id en cliente (2 primeros caracteres, case-insensitive)
+            const stationPrefix = stationCode.trim().substring(0, 2).toUpperCase();
             const upcomingTrains = data.results
+                .filter(train => train.stop_id && train.stop_id.substring(0, 2).toUpperCase() === stationPrefix)
                 .filter(train => train.departure_time)
                 .filter(train => timeToMinutes(train.departure_time) >= horaIniciMin)
                 .filter(train => lineName === '' || train.route_short_name.toLowerCase() === lineName.toLowerCase())
