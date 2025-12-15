@@ -34,7 +34,11 @@ async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
     const baseUrl = 'https://dadesobertes.fgc.cat/api/explore/v2.1/catalog/datasets/viajes-de-hoy/records';
 
     // Filtre per stop_id
-    let url = `${baseUrl}?limit=100&where=stop_id="${stationCode}"`;
+    // Normalitzem el codi d'estació: només 2 primers caràcters i sense distingir majúscules
+    const stationPrefix = stationCode.trim().substring(0, 2).toUpperCase();
+
+    // Filtre: stop_id que comenci pels dos primers caràcters (case-insensitive)
+    let url = `${baseUrl}?limit=100&where=upper(stop_id) like "${stationPrefix}%"`;
 
     try {
         let response = await fetch(url);
