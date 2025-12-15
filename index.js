@@ -30,19 +30,26 @@ function timeToMinutes(timeStr) {
 // ================================
 
 async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
-    // Nova API base
     const baseUrl = 'https://dadesobertes.fgc.cat/api/explore/v2.1/catalog/datasets/viajes-de-hoy/records';
 
-    // Filtre per stop_id
-    // Filtre per stop_id (comportament anterior)
-    let url = `${baseUrl}?limit=100&where=stop_id="${stationCode}"`;
+    // Normalitzar l'entrada de l'usuari a 2 caràcters
+    const stationPrefix = stationCode.trim().substring(0, 2).toUpperCase();
+    
+    // Generar llista de stops possibles (prefix + número de 1 a 9)
+    const possibleStops = [];
+    for (let i = 1; i <= 9; i++) {
+        possibleStops.push(`"${stationPrefix}${i}"`);
+    }
+    
+    // Filtre per stop_id amb llista explícita
+    let url = `${baseUrl}?limit=100&where=stop_id in (${possibleStops.join(',')})`;
 
     try {
         let response = await fetch(url);
         let data = await response.json();
 
-        // Si no hi ha resultats i l'estació és NA, busquem per nom
-        if (stationCode.toUpperCase() === 'NA' && (!data.results || data.results.length === 0)) {
+        // Cas especial per Nacions Unides
+        if (stationPrefix === 'NA' && (!data.results || data.results.length === 0)) {
             url = `${baseUrl}?limit=100&where=stop_name in ("Abrera","NACIONS UNIDES","Nacions Unides")`;
             response = await fetch(url);
             data = await response.json();
@@ -55,8 +62,7 @@ async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
         if (horaIniciMin < 240) horaIniciMin += 1440;
 
         if (data.results && data.results.length > 0) {
-            // Filtrado seguro por stop_id en cliente (2 primeros caracteres, case-insensitive)
-            const stationPrefix = stationCode.trim().substring(0, 2).toUpperCase();
+            // Filtratge addicional al client per seguretat
             const upcomingTrains = data.results
                 .filter(train => train.stop_id && train.stop_id.substring(0, 2).toUpperCase() === stationPrefix)
                 .filter(train => train.departure_time)
@@ -64,7 +70,11 @@ async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
                 .filter(train => lineName === '' || train.route_short_name.toLowerCase() === lineName.toLowerCase())
                 .sort((a, b) => timeToMinutes(a.departure_time) - timeToMinutes(b.departure_time));
 
-            displayTrains(upcomingTrains, trainCount);
+            if (upcomingTrains.length > 0) {
+                displayTrains(upcomingTrains, trainCount);
+            } else {
+                showNoTrains('No s\'han trobat trens disponibles per aquesta estació');
+            }
         } else {
             showNoTrains('No s\'han trobat trens disponibles');
         }
