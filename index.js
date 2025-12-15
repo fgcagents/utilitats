@@ -16,15 +16,15 @@ function corregirHora(horaStr) {
 
 // Funció per obtenir les dades de l'API i mostrar-les
 async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
-    let url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_id:${stationCode}`;
+    let url = `https://dadesobertes.fgc.cat/api/explore/v2.1/catalog/datasets/viajes-de-hoy/records?limit=1000&where=stop_id="${stationCode}"`;
 
     try {
         let response = await fetch(url);
         let data = await response.json();
 
         // Si no hay resultados y el código es 'NA', buscar por nombre de estación
-        if (stationCode.toUpperCase() === 'NA' && (!data.records || data.records.length === 0)) {
-            url = `https://fgc.opendatasoft.com/api/records/1.0/search/?dataset=viajes-de-hoy&rows=1000&q=stop_name:"nacions unides" OR stop_name:"NACIONS UNIDES" OR stop_name:"Nacions Unides"`;
+        if (stationCode.toUpperCase() === 'NA' && (!data.results || data.results.length === 0)) {
+            url = `https://dadesobertes.fgc.cat/api/explore/v2.1/catalog/datasets/viajes-de-hoy/records?limit=1000&where=stop_name="nacions unides" OR stop_name="NACIONS UNIDES" OR stop_name="Nacions Unides"`;
             response = await fetch(url);
             data = await response.json();
         }
@@ -46,9 +46,8 @@ async function fetchTrainData(stationCode, trainCount, selectedTime, lineName) {
             return total < 240 ? total + 1440 : total;
         };
 
-        if (data.records && data.records.length > 0) {
-            const upcoming_trains = data.records
-                .map(record => record.fields)
+        if (data.results && data.results.length > 0) {
+            const upcoming_trains = data.results
                 .filter(train => {
                     const trainMin = timeToMinutes(train.departure_time);
                     return trainMin >= horaIniciMin;
