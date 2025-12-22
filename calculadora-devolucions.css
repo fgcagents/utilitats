@@ -107,6 +107,13 @@ th {
     text-align: center;
 }
 
+.operacio {
+    font-weight: lighter;
+    font-size: 1.1rem;
+    margin-top: -10px;
+    text-align: center;
+}
+
 footer {
     margin-top: 80px;
     background-color: #0a0000;

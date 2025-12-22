@@ -100,25 +100,13 @@ function generarTaula(combinacio) {
             </tr>
         `;
         const preuBitllet = bitllets[item.tipus];
-        total += item.accio === 'Anul·lar'
-            ? preuBitllet * item.quantitat
-            : -preuBitllet * item.quantitat;
+        total += item.accio === 'Comprar' ? preuBitllet * item.quantitat : -preuBitllet * item.quantitat;
     });
-
-    // Construcció de l'operació real
-    let operacio = "(";
-    combinacio.forEach((item, index) => {
-        const preu = bitllets[item.tipus] * item.quantitat;
-        const operador = index === 0 ? "" : (item.accio === "Anul·lar" ? " + " : " - ");
-        operacio += `${operador}${preu.toFixed(2)}€`;
-    });
-    operacio += " )";
 
     taulaHTML += `
             </tbody>
         </table>
         <p class="import-total"><strong>Total:</strong> ${total.toFixed(2)} €</p>
-        <p class="operacio">${operacio}</p>
     `;
     return taulaHTML;
 }
