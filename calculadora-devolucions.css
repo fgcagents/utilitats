@@ -65,6 +65,7 @@ button:hover {
     color: #d9534f;
     text-align: center;
     margin-top: 20px;
+    display: none; /* style="display: none;"*/
 }
 
 #resultat {
@@ -77,6 +78,7 @@ button:hover {
     margin: 20px auto; /* Centra els elements i afegeix espai vertical */
     width: 100%; /* Assegura que ocupi tota l’amplada disponible */
     box-sizing: border-box; /* Inclou el padding dins de l’amplada */
+    display: none; /* style="display: none;"*/
     /*margin-top: 20px;
     margin-left: auto;
     margin-right: auto;*/

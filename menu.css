@@ -10,11 +10,20 @@
     padding: 10px 0 10px 0;
     /*z-index: 1000; /* Assegura que quedi per sobre d'altres elements */
 }
+.navbar-title {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 100; /*style="font-weight: 600;"*/
+    margin-left: 15px;
+}
+
 .navbar a {
     color: white;
     text-decoration: none;
     letter-spacing: 1px;
     padding: 10px 15px;
+    font-weight: 300; /*style="font-weight: 400;"*/
 }
 .navbar a:hover {
     background-color: #45a049;

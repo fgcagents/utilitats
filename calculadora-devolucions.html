@@ -20,7 +20,7 @@
 <body>
     <!-- Menú reutilitzable -->
     <div class="navbar">
-        <a href="index.html" style="font-weight: 400;">FGC utilitats</a>
+        <a href="index.html" class="navbar-title">FGC utilitats</a>
         <div class="menu-toggle" id="menu-toggle">
             <div></div>
             <div></div>
@@ -37,11 +37,11 @@
         <input type="number" id="import" step="0.05" min="0.05" max="20" placeholder="Ex.: 4.15" required>
         <button type="submit">Calcular</button>
     </form>
-    <div id="resultat" style="display: none;">
+    <div id="resultat">
         <p><center><font size="5">Resultat:</font></center></p>
         <div id="detalls"></div>
     </div>
-    <p id="error" class="error-message" style="display: none;"></p>
+    <p id="error" class="error-message"></p>
     <footer>
         J_E_O © <span id="current-year"></span>
     </footer>
