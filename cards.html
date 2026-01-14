@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analítiques 2025 - Dashboard Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #f8fafc;
+        }
+
+        .dashboard {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .metric-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 16px;
+            padding: 36px 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: #64748b;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-primary);
+        }
+
+        .metric-card.sessions {
+            --accent-primary: #3b82f6;
+        }
+
+        .metric-card.users {
+            --accent-primary: #10b981;
+        }
+
+        .metric-card.views {
+            --accent-primary: #f59e0b;
+        }
+
+        .icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--accent-primary), color-mix(in srgb, var(--accent-primary), #000 20%));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .metric-value {
+            font-size: 52px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .metric-label {
+            font-size: 20px;
+            color: #e2e8f0;
+            font-weight: 500;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-period {
+            font-size: 14px;
+            color: #94a3b8;
+            background: rgba(71, 85, 105, 0.5);
+            padding: 8px 16px;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .metric-value {
+                font-size: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1><i class="fas fa-chart-line"></i> Analítiques 2025</h1>
+            <p>Un recull de la vostra participació en aquest projecte</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card sessions">
+                <div class="icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="metric-value">3.620</div>
+                <div class="metric-label">Sessions Totals</div>
+                <div class="metric-period">Gen - Des 2025</div>
+            </div>
+            
+            <div class="metric-card users">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="metric-value">614</div>
+                <div class="metric-label">Usuaris Actius</div>
+                <div class="metric-period">Gen - Des 2025</div>
+            </div>
+            
+            <div class="metric-card views">
+                <div class="icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="metric-value">4.882</div>
+                <div class="metric-label">Visualitzacions</div>
+                <div class="metric-period">Gen - Des 2025</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
