@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "PENSIONISTA \"A\" 75% (3Z)": 1.35,
         "F.N. CAT GEN 20% (1Z)": 2.30,
         "F.N. CAT GEN 20% (2Z)": 3.30,
-        "F.N. CAT ESP 20% (3Z)": 4.30,
+        "F.N. CAT GEN 20% (3Z)": 4.30,
         "F.N. CAT ESP 50% (1Z)": 1.45,
         "F.N. CAT ESP 50% (2Z)": 2.10,
         "F.N. CAT ESP 50% (3Z)": 2.70,
@@ -209,3 +209,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Actualitza l'any del footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 });
+
