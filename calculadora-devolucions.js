@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Calculadora de devolucions per a bitllets de transport
     
     const bitllets = {
-        "SENZILL 1Z": 2.90,
-        "SENZILL 2Z": 4.15,
-        "SENZILL 3Z": 5.40,
+        "SENZILL (1Z)": 2.90,
+        "SENZILL (2Z)": 4.15,
+        "SENZILL (3Z)": 5.40,
         "PENSIONISTA \"A\" 75% (1Z)": 0.75,
         "PENSIONISTA \"A\" 75% (2Z)": 1.05,
         "PENSIONISTA \"A\" 75% (3Z)": 1.35,
@@ -209,4 +209,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Actualitza l'any del footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 });
+
 
