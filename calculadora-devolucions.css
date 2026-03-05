@@ -22,6 +22,10 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.small-text {
+    font-size: 0.8em;
+}
+
 form {
     display: flex;
     justify-content: center;
